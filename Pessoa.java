@@ -1,12 +1,12 @@
-public class Pessoa {
+public abstract class Pessoa implements IPessoa {
     private String nome;
-    private int data;
+    private String data;
     private String CPF;
     private String endereco;
     private String genero;
 
-    // Construtor com regras
-    public Pessoa(String nome, int data, String CPF, String endereco, String genero) {
+    // Construtor com parâmetros
+    public Pessoa(String nome, String data, String CPF, String endereco, String genero) {
         this.nome = nome;
         this.data = data;
         this.CPF = CPF;
@@ -18,7 +18,7 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    //Get-Set
+    // Métodos Get e Set
     public void setNome(String novoNome) {
         this.nome = novoNome;
     }
@@ -27,16 +27,18 @@ public class Pessoa {
         return this.nome;
     }
 
-    public void setData(int novodata) {
+    public void setData(String novodata) {
         this.data = novodata;
     }
-    public int getData() {
+
+    public String getData() {
         return this.data;
     }
 
     public void setCPF(String novoCPF) {
         this.CPF = novoCPF;
     }
+
     public String getCPF() {
         return this.CPF;
     }
@@ -44,6 +46,7 @@ public class Pessoa {
     public void setEndereco(String novoendereco) {
         this.endereco = novoendereco;
     }
+
     public String getEndereco() {
         return this.endereco;
     }
@@ -55,4 +58,9 @@ public class Pessoa {
     public String getGenero() {
         return this.genero;
     }
+
+    // Método abstrato
+    public abstract void apresentar();
+
+    public abstract void exibirIdentificacao();
 }

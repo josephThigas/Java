@@ -6,9 +6,15 @@ public class Instrutor extends Pessoa {
     private String matriculaProfessor;
     private String especializacao;
 
+    public Instrutor() {
+    }
 
-    public Instrutor(Pessoa pessoa, double salario, String CRM, String cargoHorario, String matriculaProfessor, String especializacao) {
-        this.pessoa = pessoa;
+    public Instrutor(String nome, String data, String CPF, String endereco, String genero) {
+        super(nome, data, CPF, endereco, genero);
+    }
+    
+    public Instrutor(double salario, String CRM, String cargoHorario, String matriculaProfessor,
+            String especializacao) {
         this.salario = salario;
         this.CRM = CRM;
         this.cargoHorario = cargoHorario;
@@ -16,9 +22,24 @@ public class Instrutor extends Pessoa {
         this.especializacao = especializacao;
     }
 
-    public Instrutor() {
+    @Override
+    public void apresentar() {
+        System.out.println("Nome: " + this.getNome());
+        System.out.println("Data de nascimento: " + this.getData());
+        System.out.println("CPF: " + this.getCPF());
+        System.out.println("Endereço: " + this.getEndereco());
+        System.out.println("Gênero: " + this.getGenero());
+        System.out.println("Salário: " + this.salario);
+        System.out.println("CRM: " + this.CRM);
+        System.out.println("Cargo e horário: " + this.cargoHorario);
+        System.out.println("Matrícula do professor: " + this.matriculaProfessor);
+        System.out.println("Especialização: " + this.especializacao);
     }
 
+    @Override
+    public void exibirIdentificacao() {
+        System.out.println("Instrutor: " + getNome() + ", Especialização: " + getEspecializacao());
+    }
 
     public Pessoa getPessoa() {
         return this.pessoa;
